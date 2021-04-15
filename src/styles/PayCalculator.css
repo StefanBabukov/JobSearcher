@@ -1,0 +1,12 @@
+
+.payCalculator {
+    text-align:  center;
+  }
+  .payCalculator input {
+    width: 5%;
+  }
+  .salaryInfo{
+    width: 100%;
+    background-color: #FFBA70;
+    text-align: center;
+  }
