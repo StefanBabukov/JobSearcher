@@ -6,7 +6,7 @@ const roundIfFloat = (number) =>{
     return roundedNum
 }
 
-const populatePayInfo = (weeklySalary, hoursPerWeek) =>{
+const populatePayInfo = (weeklySalary, hoursPerWeek=1) =>{
     let pay = {}
     pay.hourly = roundIfFloat(weeklySalary / hoursPerWeek);
     pay.monthly = roundIfFloat((weeklySalary*52)/12);

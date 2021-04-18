@@ -1,0 +1,76 @@
+
+#aboutus{
+    /* text-align: center; */
+    margin-top: 5%;
+    /* background-color: rgb(245, 245, 245); */
+}
+#form{
+    float: right;
+    /* display:grid; */
+    margin-left: 64%;
+    text-align: center;
+    margin-top: 20%;
+    width: 28%;
+    background-color: #98C1D9;
+    border-radius: 10px;
+    padding: 2% 4% 5% 4%;
+    border: 2px solid #00296bd5;
+
+    position: fixed;
+}
+#information{
+    width: 60%;
+    float: left;    
+    position: fixed;
+    border-radius: 10px;
+    padding-right: 3%;
+    padding-bottom: 2.3%;
+    padding-left: 1%;
+    border: 2px solid #00296bd5;
+    font-size:160%;
+    background-color: #98C1D9;
+    text-align: center;
+
+    /* margin-right: 80%; */
+}
+#information h3, p{
+    color: #3d3b46
+}
+    #information p{
+    text-align: left;
+}
+#form h3 {
+    color: #3d3b46;
+}
+#form label{
+    float:left;
+}
+#form button{
+    margin-top: 5%;
+}
+#form input, select {
+    width: 100%;
+    margin-top: 1%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 770px) {
+        #information{
+            width:100%;
+            margin: 0;
+            font-size: 13px;
+            margin-top: 5%;
+        }
+        #form{
+            font-size:13px;
+            padding-right: 5%;
+            padding:0;
+            width:100%;
+            margin: 0;
+            margin-top: 55%;
+        }
+    }

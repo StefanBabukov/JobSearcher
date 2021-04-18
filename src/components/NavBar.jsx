@@ -3,13 +3,12 @@ import React, {useState} from 'react';
 const NavBar = (props)=>{
     const [opened, setOpened] = useState(false)
     return(
-        <div class='sideNavbar'>
+        <nav class='navbar'>
             <a href='/'>Home</a>
             <a href='/paycalc'>Pay Calculator</a>
             <a href='/jobinfo'>Job Information</a>
             <a href='/aboutus'>About us</a>
-            
-        </div>
+        </nav>
     )
 }
 export default NavBar;

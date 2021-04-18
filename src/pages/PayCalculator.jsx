@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useRef} from 'react';
 import populatePayInfo from '../utils/populatePayInfo';
 import '../styles/PayCalculator.css' 
 
@@ -11,8 +11,12 @@ const PayCalculator = (props) =>{
     console.log('hours worked is ', period)
     const [isValid, setIsValid] = useState(false);
     const [payInfo, setPayInfo] = useState({})
+    const [error, setError] = useState(null);
 
-
+    const inputStyles = useRef({
+        hoursWorked: null,
+        moneyEarned: null,
+    })
 
     useEffect(()=>{
         if(hoursPerWeek && moneyEarned){
@@ -24,11 +28,18 @@ const PayCalculator = (props) =>{
 
     const calculatePay = ()=>{
         if(!isValid){
-            // maybe show which fields are missing to the user
-
+            setError('Please fill the following fields: ');
+            if(!hoursPerWeek){
+                inputStyles.current.hoursWorked = {border: '1px solid red'};
+            }
+            if(!moneyEarned){
+                inputStyles.current.moneyEarned = {border: '1px solid red'};
+            }
             console.log('not valid');
             return;
         }
+        setError(null);
+        inputStyles.current = {};
         let weeklySalary = 0;
         switch(period) {
             case 'hour':
@@ -52,13 +63,24 @@ const PayCalculator = (props) =>{
 
     return(
         <>
+
             <div class = 'payCalculator'>
-                <h2>Use this calculator to measure your earnings:</h2>
+                <h2 id='title' >Use this calculator to measure your earnings:</h2>
+
                 <br/>
+                {error && (<p style={{color:'red'}}>{error}</p>)}
                 <h3>I work {' '} 
-                    <input onChange={(val)=>setHoursPerWeek(val.target.value)} type='number'/> 
+                    <input onChange={(val)=>setHoursPerWeek(val.target.value)} 
+                            min='0'
+                            type='number'
+                            style={inputStyles.current.hoursWorked}
+                    /> 
                     {' '} hours a week and make £ {' '}
-                    <input type='number' onChange={(val)=>setMoneyEarned(val.target.value)} /> per {' '}
+                    <input type='number' 
+                        min='0'
+                        onChange={(val)=>setMoneyEarned(val.target.value)} 
+                        style={inputStyles.current.moneyEarned}
+                        /> per {' '}
                     <select name='period' onChange={(val)=>setPeriod(val.target.value)}> 
                         <option value='hour'>hour</option>
                         <option value='week'>week</option>
@@ -66,19 +88,20 @@ const PayCalculator = (props) =>{
                         <option value='year'>year</option>
                     </select>
                     <br/>
-                    <button onClick={() => calculatePay()}>Calculate</button>
+                    <button class='button' id='calculateBtn' onClick={() => calculatePay()}>Calculate</button>
                 </h3>
-            </div>
  
         {calculated && (
-            <div class='salaryInfo'>
-                <h1>We calculated that you also make:</h1>
+            <div class = 'calculatedInfo'>
+                <h1 class='title'>We calculated that you also make:</h1>
                 <h3>£{payInfo.hourly} per hour <br/></h3>
                 <h3>£{payInfo.weekly} per week <br/></h3>
                 <h3>£{payInfo.monthly} per month <br/></h3>
                 <h3>£{payInfo.yearly} per year <br/></h3>
             </div>
         )}
+            </div>
+
         </>
     )
 
