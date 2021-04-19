@@ -5,6 +5,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  overflow: auto;
   overflow-x: hidden;
 }
 #homepage{
@@ -48,6 +49,8 @@
     }
     .welcomeBlock{
       width: 100%;
+      margin: 0;
+      margin-top: 10%;
     }
     .welcomeBlock p{
       font-size: 12px;
@@ -56,6 +59,7 @@
       font-size: 20px;
     }
     .homeBottom{
+      margin: 0;
       width: 100%;
       position: fixed;
       margin-right: 25%;

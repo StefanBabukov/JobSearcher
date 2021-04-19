@@ -8,7 +8,6 @@ const PayCalculator = (props) =>{
     const [hoursPerWeek, setHoursPerWeek] = useState(null);
     const [moneyEarned, setMoneyEarned] = useState(null);
     const [period, setPeriod] = useState('hour');
-    console.log('hours worked is ', period)
     const [isValid, setIsValid] = useState(false);
     const [payInfo, setPayInfo] = useState({})
     const [error, setError] = useState(null);
@@ -41,6 +40,7 @@ const PayCalculator = (props) =>{
         setError(null);
         inputStyles.current = {};
         let weeklySalary = 0;
+        //always calculate the week salary and use it to calculate the other values
         switch(period) {
             case 'hour':
                 weeklySalary = hoursPerWeek * moneyEarned;

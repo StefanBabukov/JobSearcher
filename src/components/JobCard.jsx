@@ -18,7 +18,14 @@ const JobCard = (props)=>{
         )})
         return list
     }
-
+    useEffect(()=>{
+        if(detailsOpened){
+            //removing scroll from the cards while modal is open
+            document.body.style.overflow = 'hidden';
+        }else{
+            document.body.style.overflowY='auto';
+        }
+    },[detailsOpened])
     useEffect(()=>{
         getAnnualWage()
     },[])
@@ -29,22 +36,18 @@ const JobCard = (props)=>{
         wages.series.forEach((entry)=>years.push(entry.year))
 
         const mostRecentYear = Math.max(...years)
-        console.log('weekly is ', wages)
-        console.log('most recent year ', mostRecentYear)
         let weeklyWage = null;
         wages.series.forEach((entry)=>{
             if(entry.year === mostRecentYear){
                 weeklyWage = entry.estpay;
             }
         })
-        // const wage = populatePayInfo();
         const wage = populatePayInfo(weeklyWage)
         setAnnualWage(wage.yearly)
     }
+    
     const renderModal = () =>{
-        //const annualWage = await getAnnualWage()
-        // console.log('ANNUAL WAGE IS', annualWage)
-        console.log(job.title, annualWage)
+
         return (
             <div class='modal'
                 

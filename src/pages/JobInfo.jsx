@@ -20,11 +20,10 @@ const JobInfo = ()=>{
         }
         setJobs(data);
     }
-    console.log('jobs are ', jobs)
     const renderJobs = ()=>{
         let index = 0;
         const items = [];
-        // populating the cards
+        // rendering the cards
         for(index=0; index<jobs.length; index+=2){
             items.push(            
             <>
@@ -59,6 +58,7 @@ const JobInfo = ()=>{
             <div class='vertical'></div>
             <div class='results'>
             {jobs  && renderJobs()}
+            {/* if there is an error-display it */}
             {error && (
                 <>
                     <div class='notFound'>

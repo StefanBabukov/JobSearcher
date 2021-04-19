@@ -1,12 +1,9 @@
 
 #aboutus{
-    /* text-align: center; */
     margin-top: 5%;
-    /* background-color: rgb(245, 245, 245); */
 }
 #form{
     float: right;
-    /* display:grid; */
     margin-left: 64%;
     text-align: center;
     margin-top: 20%;
@@ -30,9 +27,8 @@
     font-size:160%;
     background-color: #98C1D9;
     text-align: center;
-
-    /* margin-right: 80%; */
 }
+
 #information h3, p{
     color: #3d3b46
 }
@@ -62,15 +58,26 @@
         #information{
             width:100%;
             margin: 0;
-            font-size: 13px;
+            font-size: 10px;
             margin-top: 5%;
+        }
+        #aboutus{
+            overflow-y: scroll;
         }
         #form{
             font-size:13px;
             padding-right: 5%;
             padding:0;
+            height: 100%;
             width:100%;
             margin: 0;
-            margin-top: 55%;
+            margin-top: 49%;
+
+        }
+        #form input,select, label {
+            width: 70%;
+            height: 1rem;
+            display: block;
+            margin-left: 10%;
         }
     }
