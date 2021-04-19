@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
  
 const NavBar = (props)=>{
-    const [opened, setOpened] = useState(false)
     return(
         <nav class='navbar'>
             <a href='/'>Home</a>
