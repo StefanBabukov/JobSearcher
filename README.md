@@ -7,3 +7,4 @@ To run the application:
 4. when finished do `npm start` 
 5. open your browser and navigate to www.localhost:3000
 
+For reference, I'm using node - v14.16.0 and npm - 6.14.11
